@@ -8,4 +8,4 @@ O projeto segue o versionamento semântico (`MAIOR.MENOR.CORREÇÃO`).
 ### Adicionado
 - Cadastro de tarefa com matéria, tipo, descrição e data de entrega (RF01)
 - Lista de tarefas ordenada pela data de entrega (RF02)
-- Matérias Banco de Dados e Engenharia de Software
+- Matérias Banco de Dados e Redes
