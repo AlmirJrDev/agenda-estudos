@@ -3,6 +3,12 @@
 Todas as mudanças relevantes da Agenda de Estudos ficam registradas aqui.
 O projeto segue o versionamento semântico (`MAIOR.MENOR.CORREÇÃO`).
 
+## [2.0.0] - 2026-11-04
+
+### Adicionado
+- Marcar tarefa como concluída (RF03)
+- Filtro de tarefas por matéria (RF04)
+
 ## [1.0.0] - 2026-11-03
 
 ### Adicionado
