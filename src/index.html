@@ -12,7 +12,24 @@
     <p>Trabalhos, provas e listas organizados por matéria.</p>
   </header>
   <main>
-    <p>Em construção.</p>
+    <form id="form-tarefa">
+      <h2>Nova tarefa</h2>
+
+      <label for="materia">Matéria</label>
+      <select id="materia" required></select>
+
+      <label for="tipo">Tipo</label>
+      <select id="tipo" required></select>
+
+      <label for="descricao">Descrição</label>
+      <input id="descricao" maxlength="120" required>
+
+      <label for="entrega">Data de entrega</label>
+      <input id="entrega" type="date" required>
+
+      <button type="submit">Salvar tarefa</button>
+      <p id="aviso" role="status"></p>
+    </form>
   </main>
 
   <script src="config.js"></script>
