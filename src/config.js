@@ -2,6 +2,7 @@
 const MATERIAS = [
   "Algoritmos",
   "Cálculo",
+  "Banco de Dados",
 ];
 
 // Tipos de tarefa
