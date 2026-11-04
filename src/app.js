@@ -16,6 +16,26 @@ function preencherOpcoes(id, opcoes) {
 preencherOpcoes("materia", MATERIAS);
 preencherOpcoes("tipo", TIPOS);
 
+// Converte 2026-11-03 em 03/11/2026
+function formatarData(iso) {
+  return iso.split("-").reverse().join("/");
+}
+
+// Lista as tarefas pela data de entrega, a mais próxima primeiro (RF02)
+function mostrarTarefas() {
+  const lista = document.getElementById("lista");
+  lista.innerHTML = "";
+  carregarTarefas()
+    .sort((a, b) => a.entrega.localeCompare(b.entrega))
+    .forEach((tarefa) => {
+      const linha = lista.insertRow();
+      [formatarData(tarefa.entrega), tarefa.materia, tarefa.tipo, tarefa.descricao]
+        .forEach((valor) => { linha.insertCell().textContent = valor; });
+    });
+}
+
+mostrarTarefas();
+
 // Cadastro de tarefa (RF01)
 document.getElementById("form-tarefa").addEventListener("submit", (evento) => {
   evento.preventDefault();
@@ -31,4 +51,5 @@ document.getElementById("form-tarefa").addEventListener("submit", (evento) => {
   salvarTarefas(tarefas);
   evento.target.reset();
   document.getElementById("aviso").textContent = "Tarefa salva!";
+  mostrarTarefas();
 });
