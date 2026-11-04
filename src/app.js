@@ -31,7 +31,22 @@ function mostrarTarefas() {
       const linha = lista.insertRow();
       [formatarData(tarefa.entrega), tarefa.materia, tarefa.tipo, tarefa.descricao]
         .forEach((valor) => { linha.insertCell().textContent = valor; });
+
+      // Botão para concluir ou reabrir a tarefa (RF03)
+      if (tarefa.concluida) linha.className = "concluida";
+      const botao = document.createElement("button");
+      botao.textContent = tarefa.concluida ? "Reabrir" : "Concluir";
+      botao.addEventListener("click", () => alternarConclusao(tarefa.id));
+      linha.insertCell().append(botao);
     });
+}
+
+function alternarConclusao(id) {
+  const tarefas = carregarTarefas();
+  const tarefa = tarefas.find((t) => t.id === id);
+  tarefa.concluida = !tarefa.concluida;
+  salvarTarefas(tarefas);
+  mostrarTarefas();
 }
 
 mostrarTarefas();
