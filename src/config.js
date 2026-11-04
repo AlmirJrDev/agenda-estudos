@@ -2,6 +2,7 @@
 const MATERIAS = [
   "Algoritmos",
   "Cálculo",
+  "Redes",
   "Banco de Dados",
 ];
 
