@@ -15,6 +15,7 @@ function preencherOpcoes(id, opcoes) {
 
 preencherOpcoes("materia", MATERIAS);
 preencherOpcoes("tipo", TIPOS);
+preencherOpcoes("filtro-materia", MATERIAS);
 
 // Converte 2026-11-03 em 03/11/2026
 function formatarData(iso) {
@@ -25,7 +26,10 @@ function formatarData(iso) {
 function mostrarTarefas() {
   const lista = document.getElementById("lista");
   lista.innerHTML = "";
+  // Filtro por matéria; vazio mostra todas (RF04)
+  const filtro = document.getElementById("filtro-materia").value;
   carregarTarefas()
+    .filter((tarefa) => !filtro || tarefa.materia === filtro)
     .sort((a, b) => a.entrega.localeCompare(b.entrega))
     .forEach((tarefa) => {
       const linha = lista.insertRow();
@@ -49,6 +53,7 @@ function alternarConclusao(id) {
   mostrarTarefas();
 }
 
+document.getElementById("filtro-materia").addEventListener("change", mostrarTarefas);
 mostrarTarefas();
 
 // Cadastro de tarefa (RF01)
